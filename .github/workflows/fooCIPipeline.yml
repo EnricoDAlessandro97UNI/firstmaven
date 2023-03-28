@@ -15,4 +15,13 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.11.0
+        with:
+          # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
+          java-version: 11
+          # Java distribution. See the list of supported distributions in README file
+          distribution: adopt
+          # The package type (jdk, jre, jdk+fx, jre+fx)
+          cache: maven
       - run: echo "🍏 This job's status is ${{ job.status }}."
